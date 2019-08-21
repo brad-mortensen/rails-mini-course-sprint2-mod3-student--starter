@@ -131,3 +131,6 @@ We need to convert the available products query into a scope so that it can be r
 Our customers#index controller action does a simple Customer.all query. It then iterates through each query to display the Customer orders as part of the customer resource. This is where the query becomes non performant, it hits the database multiple times (n + 1).
 
 4. Use eagerloading on the `Customer.all` call to prevent "n + 1" database queries
+
+
+Inits -- Brad Mortensen
