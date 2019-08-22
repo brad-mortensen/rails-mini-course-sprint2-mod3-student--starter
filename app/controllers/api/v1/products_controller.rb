@@ -1,11 +1,12 @@
 module Api
   module V1
     class ProductsController < ApplicationController
+
       def index
         if params[:order_id].present?
           @products = Order.find(params[:order_id]).products
         else
-          @products = Product.where("inventory > ?", 0).order(:cost)
+          @products = Product.in_stock
         end
 
         render json: @products

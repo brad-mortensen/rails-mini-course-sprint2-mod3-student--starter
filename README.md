@@ -113,7 +113,7 @@ products#create can be simplified by using association methods on `@order` to bu
 
 `Order`:
 
-1. Validate that an order always has a `status` and it's value is either "pending" or "shipped"
+1. Validate that an order always has a `status` and it's value is either "pending" or "shipped" √
 
 ## Step Four - Add Reusable Queries vis Scopes and Use EagerLoading to Improve Problem Queries
 
@@ -124,13 +124,13 @@ We need to convert the available products query into a scope so that it can be r
 @products = Product.where("inventory > ?", 0).order(:cost)
 ```
 
-1. Convert this query to a scope on products named `in_stock`.
-2. Create another scope that provides the inverse information named `out_of_stock` that should list all products with `0` inventory ordered by `cost`.
-3. Use the `in_stock` scope in the products#index controller action instead of the inline query we have now
+1. Convert this query to a scope on products named `in_stock`.√
+2. Create another scope that provides the inverse information named `out_of_stock` that should list all products with `0` inventory ordered by `cost`. √
+3. Use the `in_stock` scope in the products#index controller action instead of the inline query we have now  √
 
 Our customers#index controller action does a simple Customer.all query. It then iterates through each query to display the Customer orders as part of the customer resource. This is where the query becomes non performant, it hits the database multiple times (n + 1).
 
-4. Use eagerloading on the `Customer.all` call to prevent "n + 1" database queries
+4. Use eagerloading on the `Customer.all` call to prevent "n + 1" database queries √
 
 
 Inits -- Brad Mortensen
