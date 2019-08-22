@@ -108,8 +108,8 @@ products#create can be simplified by using association methods on `@order` to bu
 `Product`:
 
 1. Validate that a product always has a `name`. √
-2. Validate that a product always has a `cost_cents` and that it is greater than 0.
-3. Validate that a product always has an `inventory` and that its greater than or equal to 0
+2. Validate that a product always has a `cost_cents` and that it is greater than 0. √
+3. Validate that a product always has an `inventory` and that its greater than or equal to 0 √
 
 `Order`:
 
