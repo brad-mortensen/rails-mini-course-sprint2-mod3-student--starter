@@ -80,7 +80,7 @@ We can use active record associations to simplify some of our queries and creati
 2. Add associations to OrderProduct representing that it belongs to both an Order and a Product.
 3. Add an association to Product representing that it can have many associated OrderProducts.
 4. Add an association to Product representing that it can have many associated Orders via the relationship with OrderProducts.
-   - This is known as a `has many through` association; OrderProducts acts a join model between Orders and Products.
+  - This is known as a `has many through` association; OrderProducts acts a join model between Orders and Products.
 5. Add an association to Order to represent that it can have many associated OrderProducts.
 6. Add an association to Order to represent that it can have many associated Products via the relationship with OrderProducts.
 7. Add an association to Order to represent that it belongs to a Customer
