@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
   has_many :orders
 
-  validate :email, presence: true
+  validates :email, presence: true
 end
