@@ -80,7 +80,7 @@ We can use active record associations to simplify some of our queries and creati
 2. Add associations to OrderProduct representing that it belongs to both an Order and a Product.
 3. Add an association to Product representing that it can have many associated OrderProducts.
 4. Add an association to Product representing that it can have many associated Orders via the relationship with OrderProducts.
-   - This is known as a `has many through` association; OrderProducts acts a join model between Orders and Products.
+  - This is known as a `has many through` association; OrderProducts acts a join model between Orders and Products.
 5. Add an association to Order to represent that it can have many associated OrderProducts.
 6. Add an association to Order to represent that it can have many associated Products via the relationship with OrderProducts.
 7. Add an association to Order to represent that it belongs to a Customer
@@ -103,17 +103,17 @@ products#create can be simplified by using association methods on `@order` to bu
 
 `Customer`:
 
-1. Validate that customer always has an email.
+1. Validate that customer always has an email.  √
 
 `Product`:
 
-1. Validate that a product always has a `name`.
-2. Validate that a product always has a `cost_cents` and that it is greater than 0.
-3. Validate that a product always has an `inventory` and that its greater than or equal to 0
+1. Validate that a product always has a `name`. √
+2. Validate that a product always has a `cost_cents` and that it is greater than 0. √
+3. Validate that a product always has an `inventory` and that its greater than or equal to 0 √
 
 `Order`:
 
-1. Validate that an order always has a `status` and it's value is either "pending" or "shipped"
+1. Validate that an order always has a `status` and it's value is either "pending" or "shipped" √
 
 ## Step Four - Add Reusable Queries vis Scopes and Use EagerLoading to Improve Problem Queries
 
@@ -124,10 +124,13 @@ We need to convert the available products query into a scope so that it can be r
 @products = Product.where("inventory > ?", 0).order(:cost)
 ```
 
-1. Convert this query to a scope on products named `in_stock`.
-2. Create another scope that provides the inverse information named `out_of_stock` that should list all products with `0` inventory ordered by `cost`.
-3. Use the `in_stock` scope in the products#index controller action instead of the inline query we have now
+1. Convert this query to a scope on products named `in_stock`.√
+2. Create another scope that provides the inverse information named `out_of_stock` that should list all products with `0` inventory ordered by `cost`. √
+3. Use the `in_stock` scope in the products#index controller action instead of the inline query we have now  √
 
 Our customers#index controller action does a simple Customer.all query. It then iterates through each query to display the Customer orders as part of the customer resource. This is where the query becomes non performant, it hits the database multiple times (n + 1).
 
-4. Use eagerloading on the `Customer.all` call to prevent "n + 1" database queries
+4. Use eagerloading on the `Customer.all` call to prevent "n + 1" database queries √
+
+
+Inits -- Brad Mortensen
